@@ -42,4 +42,4 @@ A API possui as seguintes rotas disponibilizadas:
 
 Este compononente utiliza o [render](https://render.com/) para deploy. O deploy é realizado automaticamente a cada commit na branch master.
 
-A aplicação pode ser acessada em [https://produtos-api.onrender.com](https://produtos-api.onrender.com), assim como o swagger da aplicação também pode ser acessado em [https://produtos-api.onrender.com/swagger-ui](https://produtos-api.onrender.com/swagger-ui).
+A aplicação pode ser acessada em [https://produtos-api.onrender.com](https://produtos-api.onrender.com), assim como o swagger da aplicação também pode ser acessado em [https://produtos-api.onrender.com/api/v1/swagger-ui](https://produtos-api.onrender.com/api/v1/swagger-ui).
