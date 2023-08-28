@@ -1,4 +1,4 @@
-{
+const swaggerDocument = {
   "swagger": "2.0",
   "info": {
     "title": "Produtos API",
@@ -130,4 +130,6 @@
       }
     }
   }
-}
+};
+
+export default swaggerDocument;

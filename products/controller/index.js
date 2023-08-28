@@ -1,7 +1,7 @@
 import express from 'express';
 import productList from '../model/products.js';
 import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from '../config/swagger.json' assert { type: "json" };
+import swaggerDocument from '../config/swagger.js';
 
 const app = express();
 app.use(express.json());
