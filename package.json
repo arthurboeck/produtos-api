@@ -2,9 +2,9 @@
   "name": "produtos-api",
   "version": "1.0.0",
   "description": "Aplicação desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
-  "main": "index.js",
+  "main": "product-controller.js",
   "scripts": {
-    "start": "node products/controller/index.js"
+    "start": "node products/controller/product-controller.js"
   },
   "keywords": [],
   "author": "Arthur Guterres Boeck",

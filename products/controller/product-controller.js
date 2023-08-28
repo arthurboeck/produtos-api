@@ -4,12 +4,14 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../config/swagger.js';
 
 const app = express();
+const port = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.listen(function () {
-});
+const server = app.listen(port, () => console.log(`App listening on port ${port}!`));
+server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;
 
 app.get('/produtos', (req, res) => {
     const products = productList.produtos;
