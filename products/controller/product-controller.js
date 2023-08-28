@@ -7,19 +7,21 @@ const app = express();
 const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const server = app.listen(port, () => console.log(`App listening on port ${port}!`));
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
-app.get('/produtos', (req, res) => {
+const basePath = '/api/v1';
+app.use(`${basePath}/swagger-ui`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.get(`${basePath}/produtos`, (req, res) => {
     const products = productList.produtos;
 
     res.status(200).json(products);
 });
 
-app.get('/produtos/:id', (req, res) => {
+app.get(`${basePath}/produtos/:id`, (req, res) => {
     const id = parseInt(req.params.id);
     const produto = productList.produtos.find(p => p.id === id);
 
@@ -30,7 +32,7 @@ app.get('/produtos/:id', (req, res) => {
     }
 });
 
-app.post('/produtos', (req, res) => {
+app.post(`${basePath}/produtos`, (req, res) => {
     const novoProduto = req.body;
     novoProduto.id = productList.produtos.length + 1;
 
@@ -45,7 +47,7 @@ app.post('/produtos', (req, res) => {
     res.status(201).json(resposta);
 });
 
-app.put('/produtos/:id', (req, res) => {
+app.put(`${basePath}/produtos/:id`, (req, res) => {
     const id = parseInt(req.params.id);
     const produtoIndex = productList.produtos.findIndex(p => p.id === id);
 
@@ -59,7 +61,7 @@ app.put('/produtos/:id', (req, res) => {
     }
 });
 
-app.delete('/produtos/:id', (req, res) => {
+app.delete(`${basePath}/produtos/:id`, (req, res) => {
     const id = parseInt(req.params.id);
     const produtoIndex = productList.produtos.findIndex(p => p.id === id);
 
