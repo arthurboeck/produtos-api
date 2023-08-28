@@ -7,8 +7,9 @@ const swaggerDocument = {
   },
   "produces": ["application/json"],
   "paths": {
-    "/produtos": {
+    "/api/v1/produtos": {
       "get": {
+        "tags": ["product-controller"],
         "description": "Realiza a listagem de todos os produtos",
         "responses": {
           "200": {
@@ -17,6 +18,7 @@ const swaggerDocument = {
         }
       },
       "post": {
+        "tags": ["product-controller"],
         "description": "Realiza o cadastro de um produto",
         "parameters": [
           {
@@ -47,8 +49,9 @@ const swaggerDocument = {
         }
       }
     },
-    "/produtos/{id}": {
+    "/api/v1/produtos/{id}": {
       "get": {
+        "tags": ["product-controller"],
         "description": "Obtem os detalhes de um produto",
         "parameters": [
           {
@@ -69,6 +72,7 @@ const swaggerDocument = {
         }
       },
       "delete": {
+        "tags": ["product-controller"],
         "description": "Realiza a deleção de um produto",
         "parameters": [
           {
@@ -89,6 +93,7 @@ const swaggerDocument = {
         }
       },
       "put": {
+        "tags": ["product-controller"],
         "description": "Realiza a atualização de um produto",
         "parameters": [
           {
