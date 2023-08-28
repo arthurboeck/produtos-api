@@ -8,18 +8,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.listen(8080, function () {
-    console.log('Servidor rodando em localhost:8080')
-})
+app.listen(function () {
+});
 
 app.get('/produtos', (req, res) => {
     const products = productList.produtos;
+
     res.status(200).json(products);
 });
 
 app.get('/produtos/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const produto = productList.produtos.find(p => p.id === id);
+
     if (!produto) {
         res.status(404).send();
     } else {
