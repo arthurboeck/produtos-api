@@ -4,7 +4,8 @@
   "description": "Aplicação desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
   "main": "index.js",
   "scripts": {
-    "start": "node products/controller/index.js"
+    "start": "node index.js",
+    "start-swagger": "node swagger.js"
   },
   "keywords": [],
   "author": "Arthur Guterres Boeck",
@@ -12,6 +13,7 @@
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",
+    "swagger-autogen": "^2.23.5",
     "swagger-ui-express": "^5.0.0"
   }
 }

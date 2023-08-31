@@ -1,42 +1,59 @@
-const swaggerDocument = {
+{
   "swagger": "2.0",
   "info": {
     "title": "Produtos API",
     "description": "API de produtos desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
-    "version": "1.0"
+    "version": "1.0.0"
   },
-  "produces": ["application/json"],
+  "host": "",
+  "basePath": "",
+  "schemes": [],
   "paths": {
-    "/produtos": {
+    "${basePath}/produtos": {
       "get": {
-        "description": "Realiza a listagem de todos os produtos",
+        "description": "",
+        "parameters": [
+          {
+            "name": "basePath",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       },
       "post": {
-        "description": "Realiza o cadastro de um produto",
+        "description": "",
         "parameters": [
+          {
+            "name": "basePath",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
               "type": "object",
               "properties": {
+                "id": {
+                  "example": "any"
+                },
                 "descricao": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "valor": {
-                  "type": "number"
+                  "example": "any"
                 },
                 "marca": {
-                  "type": "string"
+                  "example": "any"
                 }
-              },
-              "required": ["descricao", "valor", "marca"]
+              }
             }
           }
         ],
@@ -47,21 +64,51 @@ const swaggerDocument = {
         }
       }
     },
-    "/produtos/{id}": {
+    "${basePath}/produtos/{id}": {
       "get": {
-        "description": "Obtem os detalhes de um produto",
+        "description": "",
         "parameters": [
+          {
+            "name": "basePath",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "id",
             "in": "path",
-            "description": "ID do produto",
             "required": true,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "basePath",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "404": {
             "description": "Not Found"
@@ -69,14 +116,19 @@ const swaggerDocument = {
         }
       },
       "delete": {
-        "description": "Realiza a deleção de um produto",
+        "description": "",
         "parameters": [
+          {
+            "name": "basePath",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "id",
             "in": "path",
-            "description": "ID do produto",
             "required": true,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {
@@ -87,49 +139,7 @@ const swaggerDocument = {
             "description": "Not Found"
           }
         }
-      },
-      "put": {
-        "description": "Realiza a atualização de um produto",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID do produto",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "descricao": {
-                  "type": "string"
-                },
-                "valor": {
-                  "type": "number"
-                },
-                "marca": {
-                  "type": "string"
-                }
-              },
-              "required": ["descricao", "valor", "marca"]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
       }
     }
   }
-};
-
-export default swaggerDocument;
+}
