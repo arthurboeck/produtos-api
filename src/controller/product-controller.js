@@ -60,4 +60,4 @@ export default function routes(router) {
             res.status(204).send();
         }
     });
-}
+};

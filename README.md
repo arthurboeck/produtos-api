@@ -1,2 +1,45 @@
-# produtos-api
-Aplicação desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG
+# Produtos API
+
+Aplicação desenvolvida para a disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído - PUCMG.
+
+A `produtos-api` é uma aplicação Node.js construída com o framework Express para gerenciar informações sobre produtos. Essa API permite criar, visualizar, atualizar e deletar informações sobre produtos.
+
+## Dependencias
+* [Node](https://nodejs.org/en/docs/)
+* [Npm](https://docs.npmjs.com/)
+* [Express](https://github.com/expressjs/express)
+* [Swagger UI Express](https://github.com/scottie1984/swagger-ui-express)
+
+## Como executar a aplicação
+
+O projeto pode ser startado e executado com base nos seguintes comandos:
+
+Passo 1: Install de dependencias:
+```shell
+npm install
+```
+Passo 2: Start do projeto:
+```shell
+npm start
+```
+
+Após isso o projeto estará rodando na porta 8080, podendo ser acessado em [http://localhost:8080](http://localhost:3000), ou via swagger disponibilizado em [http://localhost:8080/api/v1/swagger-ui](http://localhost:8080/api/v1/swagger-ui).
+
+## Rotas disponibilizadas
+
+A API possui as seguintes rotas disponibilizadas:
+
+| Mapeamento da URL           | Operação (CRUD) | Descrição                                    |
+|-----------------------------|-----------------|----------------------------------------------|
+| GET /api/v1/swagger-ui      | INFO            | Swagger da aplicação                         |
+| POST /api/v1/produtos       | CREATE          | Cria um produto                              |
+| GET /api/v1/produtos        | RETRIEVE        | Retorna a lista de todos os produtos         |
+| GET /api/v1/produtos/:id    | RETRIEVE        | Retorna os detalhes de um produto especifico |
+| PUT /api/v1/produtos/:id    | UPDATE          | Atualiza os detalhes de um produto existente |
+| DELETE /api/v1/produtos/:id | DELETE          | Deleta um produto                            |
+
+## Deploy
+
+Este compononente utiliza o [render](https://render.com/) para deploy. O deploy é realizado automaticamente a cada commit na branch master.
+
+A aplicação pode ser acessada em [https://produtos-api.onrender.com](https://produtos-api.onrender.com), assim como o swagger da aplicação também pode ser acessado em [https://produtos-api.onrender.com/api/v1/swagger-ui](https://produtos-api.onrender.com/api/v1/swagger-ui).
