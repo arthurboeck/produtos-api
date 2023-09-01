@@ -1,15 +1,17 @@
 import productList from '../model/products.js';
 
-const basePath = '/api/v1';
-
 export default function routes(router) {
-    router.get(`${basePath}/produtos`, (req, res) => {
-        const products = productList.produtos;
 
+    router.get('/api/v1/produtos', (req, res) => {
+        // #swagger.tags = ['Produtos']
+
+        const products = productList.produtos;
         res.status(200).json(products);
     });
 
-    router.get(`${basePath}/produtos/:id`, (req, res) => {
+    router.get('/api/v1/produtos/:id', (req, res) => {
+        // #swagger.tags = ['Produtos']
+
         const id = parseInt(req.params.id);
         const produto = productList.produtos.find(p => p.id === id);
 
@@ -20,7 +22,9 @@ export default function routes(router) {
         }
     });
 
-    router.post(`${basePath}/produtos`, (req, res) => {
+    router.post('/api/v1/produtos', (req, res) => {
+        // #swagger.tags = ['Produtos']
+
         const novoProduto = req.body;
         novoProduto.id = productList.produtos.length + 1;
 
@@ -35,7 +39,9 @@ export default function routes(router) {
         res.status(201).json(resposta);
     });
 
-    router.put(`${basePath}/produtos/:id`, (req, res) => {
+    router.put('/api/v1/produtos/:id', (req, res) => {
+        // #swagger.tags = ['Produtos']
+
         const id = parseInt(req.params.id);
         const produtoIndex = productList.produtos.findIndex(p => p.id === id);
 
@@ -49,7 +55,9 @@ export default function routes(router) {
         }
     });
 
-    router.delete(`${basePath}/produtos/:id`, (req, res) => {
+    router.delete('/api/v1/produtos/:id', (req, res) => {
+        // #swagger.tags = ['Produtos']
+
         const id = parseInt(req.params.id);
         const produtoIndex = productList.produtos.findIndex(p => p.id === id);
 

@@ -1,25 +1,19 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.1.0",
   "info": {
     "title": "Produtos API",
     "description": "API de produtos desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "host": "",
   "basePath": "",
-  "schemes": [],
   "paths": {
-    "${basePath}/produtos": {
+    "/api/v1/produtos": {
       "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "basePath",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
+        "tags": [
+          "Produtos"
         ],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -27,58 +21,54 @@
         }
       },
       "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "basePath",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "any"
-                },
-                "descricao": {
-                  "example": "any"
-                },
-                "valor": {
-                  "example": "any"
-                },
-                "marca": {
-                  "example": "any"
-                }
-              }
-            }
-          }
+        "tags": [
+          "Produtos"
         ],
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
           }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "example": "any"
+                  },
+                  "descricao": {
+                    "example": "any"
+                  },
+                  "valor": {
+                    "example": "any"
+                  },
+                  "marca": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
-    "${basePath}/produtos/{id}": {
+    "/api/v1/produtos/{id}": {
       "get": {
+        "tags": [
+          "Produtos"
+        ],
         "description": "",
         "parameters": [
-          {
-            "name": "basePath",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -91,19 +81,18 @@
         }
       },
       "put": {
+        "tags": [
+          "Produtos"
+        ],
         "description": "",
         "parameters": [
-          {
-            "name": "basePath",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -116,19 +105,18 @@
         }
       },
       "delete": {
+        "tags": [
+          "Produtos"
+        ],
         "description": "",
         "parameters": [
-          {
-            "name": "basePath",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {

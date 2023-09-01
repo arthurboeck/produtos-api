@@ -9,6 +9,7 @@ A `produtos-api` é uma aplicação Node.js construída com o framework Express 
 * [Npm](https://docs.npmjs.com/)
 * [Express](https://github.com/expressjs/express)
 * [Swagger UI Express](https://github.com/scottie1984/swagger-ui-express)
+* [Swagger Autogen](https://swagger-autogen.github.io/docs/getting-started/quick-start)
 
 ## Como executar a aplicação
 
@@ -23,7 +24,7 @@ Passo 2: Start do projeto:
 npm start
 ```
 
-Após isso o projeto estará rodando na porta 8080, podendo ser acessado em [http://localhost:8080](http://localhost:3000), ou via swagger disponibilizado em [http://localhost:8080/api/v1/swagger-ui](http://localhost:8080/api/v1/swagger-ui).
+Após isso o projeto estará rodando na porta 8080, podendo ser acessado em [http://localhost:8080](http://localhost:8080), ou via swagger disponibilizado em [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui).
 
 ## Rotas disponibilizadas
 
@@ -31,7 +32,7 @@ A API possui as seguintes rotas disponibilizadas:
 
 | Mapeamento da URL           | Operação (CRUD) | Descrição                                    |
 |-----------------------------|-----------------|----------------------------------------------|
-| GET /api/v1/swagger-ui      | INFO            | Swagger da aplicação                         |
+| GET /swagger-ui             | INFO            | Swagger da aplicação                         |
 | POST /api/v1/produtos       | CREATE          | Cria um produto                              |
 | GET /api/v1/produtos        | RETRIEVE        | Retorna a lista de todos os produtos         |
 | GET /api/v1/produtos/:id    | RETRIEVE        | Retorna os detalhes de um produto especifico |
@@ -42,4 +43,4 @@ A API possui as seguintes rotas disponibilizadas:
 
 Este compononente utiliza o [render](https://render.com/) para deploy. O deploy é realizado automaticamente a cada commit na branch master.
 
-A aplicação pode ser acessada em [https://produtos-api.onrender.com](https://produtos-api.onrender.com), assim como o swagger da aplicação também pode ser acessado em [https://produtos-api.onrender.com/api/v1/swagger-ui](https://produtos-api.onrender.com/api/v1/swagger-ui).
+A aplicação pode ser acessada em [https://produtos-api.onrender.com](https://produtos-api.onrender.com), assim como o swagger da aplicação também pode ser acessado em [https://produtos-api.onrender.com/swagger-ui](https://produtos-api.onrender.com/swagger-ui).

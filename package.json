@@ -13,7 +13,9 @@
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",
-    "swagger-autogen": "^2.23.5",
     "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.5"
   }
 }
