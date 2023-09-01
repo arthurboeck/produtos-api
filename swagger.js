@@ -14,8 +14,7 @@ const doc = {
     schemes: [],
 };
 
-const swaggerPromisse = swaggerAutogen(outputFile, endpointsFiles, doc);
-swaggerPromisse
+swaggerAutogen(outputFile, endpointsFiles, doc)
     .then(() => {
         import('./index.js') // Project's root file
         console.log('Swagger gerado com sucesso.');
