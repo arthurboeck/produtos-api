@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-swagger": "node swagger.js"
+    "start-swagger": "node swagger.js",
+    "migrations:list": "npx knex migrate:list",
+    "migrations:run": "npx knex migrate:latest",
+    "seed:run": "npx knex seed:run",
+    "migrations-seed:run": "npx knex migrate:latest && npx knex seed:run"
   },
   "keywords": [],
   "author": "Arthur Guterres Boeck",
@@ -13,6 +17,8 @@
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",
+    "knex": "^2.5.1",
+    "sqlite3": "^5.1.6",
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
