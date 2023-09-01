@@ -12,8 +12,8 @@ export default function routes(router) {
     router.get('/api/v1/produtos/:id', (req, res) => {
         // #swagger.tags = ['Produtos']
 
-        const id = parseInt(req.params.id);
-        const produto = productList.produtos.find(p => p.id === id);
+        const productId = parseInt(req.params.id);
+        const produto = productList.produtos.find(p => p.id === productId);
 
         if (!produto) {
             res.status(404).send();
@@ -42,13 +42,13 @@ export default function routes(router) {
     router.put('/api/v1/produtos/:id', (req, res) => {
         // #swagger.tags = ['Produtos']
 
-        const id = parseInt(req.params.id);
-        const produtoIndex = productList.produtos.findIndex(p => p.id === id);
+        const productId = parseInt(req.params.id);
+        const produtoIndex = productList.produtos.findIndex(p => p.id === productId);
 
         if (produtoIndex === -1) {
             res.status(404).send();
         } else {
-            const produtoAtualizado = { id, ...req.body };
+            const produtoAtualizado = { id: productId, ...req.body };
             productList.produtos[produtoIndex] = produtoAtualizado;
 
             res.status(200).json(produtoAtualizado);
@@ -58,8 +58,8 @@ export default function routes(router) {
     router.delete('/api/v1/produtos/:id', (req, res) => {
         // #swagger.tags = ['Produtos']
 
-        const id = parseInt(req.params.id);
-        const produtoIndex = productList.produtos.findIndex(p => p.id === id);
+        const productId = parseInt(req.params.id);
+        const produtoIndex = productList.produtos.findIndex(p => p.id === productId);
 
         if (produtoIndex === -1) {
             res.status(404).send();

@@ -14,9 +14,12 @@ const doc = {
     schemes: [],
 };
 
-swaggerAutogen({ openapi: '3.1.0' })(outputFile, endpointsFiles, doc)
+const swaggerPromisse = swaggerAutogen({ openapi: '3.1.0' })(outputFile, endpointsFiles, doc);
+
+swaggerPromisse
     .then(() => {
         import('./index.js') // Project's root file
+        console.log('Swagger gerado com sucesso.');
     })
     .catch(error => {
         console.error('Erro na auto geracao do Swagger: ', error.message);
