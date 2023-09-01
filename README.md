@@ -20,8 +20,16 @@ Passo 1: Install de dependencias:
 npm install
 ```
 Passo 2: Start do projeto:
+    
+Caso já possua o docto de configuracao swagger-output.json, executar o comando:
+
 ```shell
 npm start
+```    
+Caso não possua o docto de configuracao swagger-output.json, executar o comando:
+
+```shell
+npm run start-swagger
 ```
 
 Após isso o projeto estará rodando na porta 8080, podendo ser acessado em [http://localhost:8080](http://localhost:8080), ou via swagger disponibilizado em [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui).

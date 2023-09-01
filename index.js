@@ -1,6 +1,5 @@
 import bodyParser from 'body-parser';
 import express from 'express';
-import fs from 'fs';
 import productController from './src/controller/product-controller.js';
 import swaggerDocument from './swagger-output.json' assert { type: "json" };
 import swaggerUi from 'swagger-ui-express';
