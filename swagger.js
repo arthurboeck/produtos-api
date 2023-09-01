@@ -14,8 +14,7 @@ const doc = {
     schemes: [],
 };
 
-const swaggerPromisse = swaggerAutogen({ openapi: '3.1.0' })(outputFile, endpointsFiles, doc);
-
+const swaggerPromisse = swaggerAutogen(outputFile, endpointsFiles, doc);
 swaggerPromisse
     .then(() => {
         import('./index.js') // Project's root file

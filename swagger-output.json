@@ -1,5 +1,5 @@
 {
-  "openapi": "3.1.0",
+  "swagger": "2.0",
   "info": {
     "title": "Produtos API",
     "description": "API de produtos desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
@@ -7,6 +7,7 @@
   },
   "host": "",
   "basePath": "",
+  "schemes": [],
   "paths": {
     "/api/v1/produtos": {
       "get": {
@@ -25,32 +26,32 @@
           "Produtos"
         ],
         "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "example": "any"
-                  },
-                  "descricao": {
-                    "example": "any"
-                  },
-                  "valor": {
-                    "example": "any"
-                  },
-                  "marca": {
-                    "example": "any"
-                  }
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "descricao": {
+                  "example": "any"
+                },
+                "valor": {
+                  "example": "any"
+                },
+                "marca": {
+                  "example": "any"
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
           }
         }
       }
@@ -66,9 +67,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -90,9 +89,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -114,9 +111,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
