@@ -1,7 +1,8 @@
 import bodyParser from 'body-parser';
 import express from 'express';
+import fs from 'fs';
 import productController from './src/controller/product-controller.js';
-import swaggerFile from './swagger-output.json';
+import swaggerDocument from './swagger-output.json' assert { type: "json" };
 import swaggerUi from 'swagger-ui-express';
 
 const router = express();
@@ -13,6 +14,5 @@ const server = router.listen(port, () => console.log(`App listening on port ${po
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
-router.use('/api/v1/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerFile));
-
+router.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 productController(router);
