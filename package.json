@@ -2,7 +2,7 @@
   "name": "produtos-api",
   "version": "1.0.0",
   "description": "Aplicação desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
-  "main": "index.js",
+  "main": "product-controller.js",
   "scripts": {
     "start": "node index.js",
     "start-swagger": "node swagger.js"
