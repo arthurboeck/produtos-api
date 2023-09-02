@@ -1,7 +1,10 @@
 import swaggerAutogen from 'swagger-autogen';
 
 const outputFile = './swagger-output.json';
-const endpointsFiles = ['./src/controller/product-controller.js'];
+const endpointsFiles = [
+    './src/controller/product-controller.js',
+    './src/controller/store-controller.js'
+];
 
 const doc = {
     info: {
