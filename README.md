@@ -5,15 +5,36 @@ Aplicação desenvolvida para a disciplina de Node.JS na Especialização em Arq
 A `produtos-api` é uma aplicação Node.js construída com o framework Express para gerenciar informações sobre produtos. Essa API permite criar, visualizar, atualizar e deletar informações sobre produtos.
 
 ## Dependencias
+* [Knex](https://knexjs.org/guide/)
 * [Node](https://nodejs.org/en/docs/)
 * [Npm](https://docs.npmjs.com/)
 * [Express](https://github.com/expressjs/express)
+* [Sqlite3](https://www.npmjs.com/package/sqlite3)
 * [Swagger UI Express](https://github.com/scottie1984/swagger-ui-express)
 * [Swagger Autogen](https://swagger-autogen.github.io/docs/getting-started/quick-start)
 
 ## Como executar a aplicação
 
-O projeto pode ser startado e executado com base nos seguintes comandos:
+Caso voce esteja executando o projeto pela primeira, será necessário executar aas migrations e seeds do projeto, tal processo pode ser startado e executado com base nos seguintes comandos:
+
+Passo 1: Install de dependencias:
+```shell
+npm install
+```
+Passo 2: Start do projeto:
+    
+Caso já possua o docto de configuracao swagger-output.json, executar o comando:
+
+```shell
+npm start:migrations
+```    
+Caso não possua o docto de configuracao swagger-output.json, executar o comando:
+
+```shell
+npm run start:swagger:migrations
+```
+
+Caso voce já tenha executado as migrations e seeds do projeto, o mesmo pode ser startado e executado com base nos seguintes comandos:
 
 Passo 1: Install de dependencias:
 ```shell
@@ -29,7 +50,7 @@ npm start
 Caso não possua o docto de configuracao swagger-output.json, executar o comando:
 
 ```shell
-npm run start-swagger
+npm run start:swagger
 ```
 
 Após isso o projeto estará rodando na porta 8080, podendo ser acessado em [http://localhost:8080](http://localhost:8080), ou via swagger disponibilizado em [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui).
