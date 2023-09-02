@@ -5,7 +5,7 @@ import Store from '../model/store.js';
 export default function routes(router) {
 
     router.get('/api/v1/lojas', async (req, res) => {
-        // #swagger.tags = ['Lojas']
+        // #swagger.tags = ['store-controller']
 
         try {
             const stores = await storeService.getStores();
@@ -16,7 +16,7 @@ export default function routes(router) {
     });
 
     router.get('/api/v1/lojas/:id', async (req, res) => {
-        // #swagger.tags = ['Lojas']
+        // #swagger.tags = ['store-controller']
 
         const storeId = parseInt(req.params.id);
         try {
@@ -28,7 +28,7 @@ export default function routes(router) {
     });
 
     router.post('/api/v1/lojas', async (req, res) => {
-        // #swagger.tags = ['Lojas']
+        // #swagger.tags = ['store-controller']
 
         const { nome, endereco, nomeGerente } = req.body;
         const novaLoja = new Store(nome, endereco, nomeGerente);
@@ -42,7 +42,7 @@ export default function routes(router) {
     });
 
     router.put('/api/v1/lojas/:id', async (req, res) => {
-        // #swagger.tags = ['Lojas']
+        // #swagger.tags = ['store-controller']
 
         const storeId = parseInt(req.params.id);
         const { nome, endereco, nomeGerente } = req.body;
@@ -57,7 +57,7 @@ export default function routes(router) {
     });
 
     router.delete('/api/v1/lojas/:id', async (req, res) => {
-        // #swagger.tags = ['Lojas']
+        // #swagger.tags = ['store-controller']
 
         const storeId = parseInt(req.params.id);
 

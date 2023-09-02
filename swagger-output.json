@@ -12,7 +12,7 @@
     "/api/v1/produtos": {
       "get": {
         "tags": [
-          "Produtos"
+          "product-controller"
         ],
         "description": "",
         "responses": {
@@ -23,7 +23,7 @@
       },
       "post": {
         "tags": [
-          "Produtos"
+          "product-controller"
         ],
         "description": "",
         "parameters": [
@@ -56,7 +56,7 @@
     "/api/v1/produtos/{id}": {
       "get": {
         "tags": [
-          "Produtos"
+          "product-controller"
         ],
         "description": "",
         "parameters": [
@@ -75,7 +75,7 @@
       },
       "put": {
         "tags": [
-          "Produtos"
+          "product-controller"
         ],
         "description": "",
         "parameters": [
@@ -112,7 +112,7 @@
       },
       "delete": {
         "tags": [
-          "Produtos"
+          "product-controller"
         ],
         "description": "",
         "parameters": [
@@ -133,7 +133,7 @@
     "/api/v1/lojas": {
       "get": {
         "tags": [
-          "Lojas"
+          "store-controller"
         ],
         "description": "",
         "responses": {
@@ -144,7 +144,7 @@
       },
       "post": {
         "tags": [
-          "Lojas"
+          "store-controller"
         ],
         "description": "",
         "parameters": [
@@ -177,7 +177,7 @@
     "/api/v1/lojas/{id}": {
       "get": {
         "tags": [
-          "Lojas"
+          "store-controller"
         ],
         "description": "",
         "parameters": [
@@ -196,7 +196,7 @@
       },
       "put": {
         "tags": [
-          "Lojas"
+          "store-controller"
         ],
         "description": "",
         "parameters": [
@@ -233,7 +233,7 @@
       },
       "delete": {
         "tags": [
-          "Lojas"
+          "store-controller"
         ],
         "description": "",
         "parameters": [

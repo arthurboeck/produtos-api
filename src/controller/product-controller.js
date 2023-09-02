@@ -5,7 +5,7 @@ import Product from '../model/product.js';
 export default function routes(router) {
 
     router.get('/api/v1/produtos', async (req, res) => {
-        // #swagger.tags = ['Produtos']
+        // #swagger.tags = ['product-controller']
 
         try {
             const products = await productService.getProducts();
@@ -16,7 +16,7 @@ export default function routes(router) {
     });
 
     router.get('/api/v1/produtos/:id', async (req, res) => {
-        // #swagger.tags = ['Produtos']
+        // #swagger.tags = ['product-controller']
 
         const productId = parseInt(req.params.id);
         try {
@@ -28,7 +28,7 @@ export default function routes(router) {
     });
 
     router.post('/api/v1/produtos', async (req, res) => {
-        // #swagger.tags = ['Produtos']
+        // #swagger.tags = ['product-controller']
 
         const { descricao, marca, valor } = req.body;
         const novoProduto = new Product(descricao, valor, marca);
@@ -42,7 +42,7 @@ export default function routes(router) {
     });
 
     router.put('/api/v1/produtos/:id', async (req, res) => {
-        // #swagger.tags = ['Produtos']
+        // #swagger.tags = ['product-controller']
 
         const productId = parseInt(req.params.id);
         const { descricao, marca, valor } = req.body;
@@ -57,7 +57,7 @@ export default function routes(router) {
     });
 
     router.delete('/api/v1/produtos/:id', async (req, res) => {
-        // #swagger.tags = ['Produtos']
+        // #swagger.tags = ['product-controller']
 
         const productId = parseInt(req.params.id);
 
