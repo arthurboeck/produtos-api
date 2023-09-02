@@ -1,5 +1,6 @@
 import express from 'express';
 import productController from './src/controller/product-controller.js';
+import storeController from './src/controller/store-controller.js';
 import swaggerDocument from './swagger-output.json' assert { type: "json" };
 import swaggerUi from 'swagger-ui-express';
 
@@ -17,6 +18,7 @@ server.headersTimeout = 120 * 1000;
 
 router.use('/swagger-ui', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 productController(router);
+storeController(router);
 
 router.use((err, req, res, next) => {
     console.error('Erro interno: ', err.stack);
