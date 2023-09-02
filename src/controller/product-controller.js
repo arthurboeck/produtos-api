@@ -34,7 +34,7 @@ export default function routes(router) {
         const novoProduto = new Product(descricao, valor, marca);
 
         try {
-            productService.createProduct(novoProduto);
+            await productService.createProduct(novoProduto);
             res.status(201).send();
         } catch (error) {
             errorHandler(res, error);
@@ -49,7 +49,7 @@ export default function routes(router) {
         const produtoAtualizado = new Product(descricao, valor, marca);
 
         try {
-            productService.updateProduct(productId, produtoAtualizado);
+            await productService.updateProduct(productId, produtoAtualizado);
             res.status(200).json(produtoAtualizado);
         } catch (error) {
             errorHandler(res, error);
