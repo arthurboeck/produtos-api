@@ -55,6 +55,21 @@ npm run start:swagger
 
 Após isso o projeto estará rodando na porta 8080, podendo ser acessado em [http://localhost:8080](http://localhost:8080), ou via swagger disponibilizado em [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui).
 
+## Estrutura do projeto
+
+Os pacotes do projeto se distribuem da seguinte forma:
+
+- `database`: contém as configurações de conexão com o banco de dados, migrations e seeds do projeto.
+    - `database/migrations`: contém as migrations do projeto.
+    - `database/seeds`: contém as seeds do projeto.
+- `src`: contém o código fonte da aplicação.
+    - `src/controllers`: contém os controllers da aplicação.
+    - `src/infra/error`: contém as classes de erros da aplicação e um seu respectivo error handler.
+    - `src/model`: contém as entidades da aplicação.
+    - `src/repository`: contém as repositories, responsaveis pela comunicacao direta com o banco de dados.
+    - `src/service`: contém as services, responsaveis pela regra de negocio da aplicacao.
+        - `validators`: responsaveis pela validacao dos dados de entrada da aplicacao.
+
 ## Rotas disponibilizadas
 
 A API possui as seguintes rotas disponibilizadas:
