@@ -10,7 +10,7 @@ router.use(express.urlencoded({ extended: true }))
 router.use(express.json());
 
 const server = router.listen(port, () => {
-    console.log(`App listening on port ${port}!`)
+    console.info(`App listening on port ${port}!`)
 });
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;

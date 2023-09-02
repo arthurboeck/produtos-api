@@ -17,7 +17,7 @@ const doc = {
 swaggerAutogen(outputFile, endpointsFiles, doc)
     .then(() => {
         import('./index.js') // Project's root file
-        console.log('Swagger gerado com sucesso.');
+        console.info('Swagger gerado com sucesso.');
     })
     .catch(error => {
         console.error('Erro na auto geracao do Swagger: ', error.message);
