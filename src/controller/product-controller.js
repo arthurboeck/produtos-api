@@ -1,4 +1,4 @@
-import * as productService from '../model/product-service.js';
+import * as productService from '../service/product-service.js';
 import { errorHandler } from '../infra/error/RequestError.js';
 import Product from '../model/product.js';
 

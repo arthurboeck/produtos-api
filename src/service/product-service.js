@@ -1,6 +1,6 @@
-import * as productRepository from './product-repository.js';
+import * as productRepository from '../repository/product-repository.js';
 import { NotFoundError } from '../infra/error/RequestError.js';
-import validateProduct from './product-validation.js';
+import validateProduct from './product-validator.js';
 
 export async function getProducts() {
     const products = await productRepository.getProducts();
