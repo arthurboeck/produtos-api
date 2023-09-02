@@ -1,71 +1,71 @@
-import productList from '../model/products.js';
+import * as productService from '../model/product-service.js';
+import { errorHandler } from '../infra/error/RequestError.js';
+import Product from '../model/product.js';
 
 export default function routes(router) {
 
-    router.get('/api/v1/produtos', (req, res) => {
+    router.get('/api/v1/produtos', async (req, res) => {
         // #swagger.tags = ['Produtos']
 
-        const products = productList.produtos;
-        res.status(200).json(products);
-    });
-
-    router.get('/api/v1/produtos/:id', (req, res) => {
-        // #swagger.tags = ['Produtos']
-
-        const productId = parseInt(req.params.id);
-        const produto = productList.produtos.find(p => p.id === productId);
-
-        if (!produto) {
-            res.status(404).send();
-        } else {
-            res.status(200).json(produto);
+        try {
+            const products = await productService.getProducts();
+            res.status(200).json(products);
+        } catch (error) {
+            errorHandler(res, error);
         }
     });
 
-    router.post('/api/v1/produtos', (req, res) => {
-        // #swagger.tags = ['Produtos']
-
-        const novoProduto = req.body;
-        novoProduto.id = productList.produtos.length + 1;
-
-        const resposta = {
-            id: novoProduto.id,
-            descricao: novoProduto.descricao,
-            valor: novoProduto.valor,
-            marca: novoProduto.marca,
-        };
-
-        productList.produtos.push(resposta);
-        res.status(201).json(resposta);
-    });
-
-    router.put('/api/v1/produtos/:id', (req, res) => {
+    router.get('/api/v1/produtos/:id', async (req, res) => {
         // #swagger.tags = ['Produtos']
 
         const productId = parseInt(req.params.id);
-        const produtoIndex = productList.produtos.findIndex(p => p.id === productId);
+        try {
+            const productDetails = await productService.getProductById(productId);
+            res.status(200).json(productDetails);
+        } catch (error) {
+            errorHandler(res, error);
+        }
+    });
 
-        if (produtoIndex === -1) {
-            res.status(404).send();
-        } else {
-            const produtoAtualizado = { id: productId, ...req.body };
-            productList.produtos[produtoIndex] = produtoAtualizado;
+    router.post('/api/v1/produtos', async (req, res) => {
+        // #swagger.tags = ['Produtos']
 
+        const { descricao, marca, valor } = req.body;
+        const novoProduto = new Product(descricao, valor, marca);
+
+        try {
+            productService.createProduct(novoProduto);
+            res.status(201).send();
+        } catch (error) {
+            errorHandler(res, error);
+        }
+    });
+
+    router.put('/api/v1/produtos/:id', async (req, res) => {
+        // #swagger.tags = ['Produtos']
+
+        const productId = parseInt(req.params.id);
+        const { descricao, marca, valor } = req.body;
+        const produtoAtualizado = new Product(descricao, valor, marca);
+
+        try {
+            productService.updateProduct(productId, produtoAtualizado);
             res.status(200).json(produtoAtualizado);
+        } catch (error) {
+            errorHandler(res, error);
         }
     });
 
-    router.delete('/api/v1/produtos/:id', (req, res) => {
+    router.delete('/api/v1/produtos/:id', async (req, res) => {
         // #swagger.tags = ['Produtos']
 
         const productId = parseInt(req.params.id);
-        const produtoIndex = productList.produtos.findIndex(p => p.id === productId);
 
-        if (produtoIndex === -1) {
-            res.status(404).send();
-        } else {
-            productList.produtos.splice(produtoIndex, 1);
+        try {
+            await productService.deleteProduct(productId);
             res.status(204).send();
+        } catch (error) {
+            errorHandler(res, error);
         }
     });
 };
