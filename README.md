@@ -2,7 +2,7 @@
 
 Aplicação desenvolvida para a disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído - PUCMG.
 
-A `produtos-api` é uma aplicação Node.js construída com o framework Express para gerenciar informações sobre produtos. Essa API permite criar, visualizar, atualizar e deletar informações sobre produtos.
+A `produtos-api` é uma aplicação Node.js construída com o framework Express para gerenciar informações sobre produtos e lojas. Essa API permite criar, visualizar, atualizar e deletar informações sobre produtos e suas lojas.
 
 ## Dependencias
 * [Knex](https://knexjs.org/guide/)
@@ -64,11 +64,11 @@ Os pacotes do projeto se distribuem da seguinte forma:
     - `database/seeds`: contém as seeds do projeto.
 - `src`: contém o código fonte da aplicação.
     - `src/controllers`: contém os controllers da aplicação.
-    - `src/infra/error`: contém as classes de erros da aplicação e um seu respectivo error handler.
+    - `src/infra/error`: contém as classes de erros da aplicação e seu respectivo error handler.
     - `src/model`: contém as entidades da aplicação.
     - `src/repository`: contém as repositories, responsaveis pela comunicacao direta com o banco de dados.
     - `src/service`: contém as services, responsaveis pela regra de negocio da aplicacao.
-        - `validators`: responsaveis pela validacao dos dados de entrada da aplicacao.
+        - `validators`: responsaveis pela validacao dos dados de entrada de cada dominio.
 
 ## Rotas disponibilizadas
 
@@ -82,6 +82,11 @@ A API possui as seguintes rotas disponibilizadas:
 | GET /api/v1/produtos/:id    | RETRIEVE        | Retorna os detalhes de um produto especifico |
 | PUT /api/v1/produtos/:id    | UPDATE          | Atualiza os detalhes de um produto existente |
 | DELETE /api/v1/produtos/:id | DELETE          | Deleta um produto                            |
+| POST /api/v1/lojas          | CREATE          | Cria uma loja                                |
+| GET /api/v1/lojas           | RETRIEVE        | Retorna a lista de todas as lojas            |
+| GET /api/v1/lojas/:id       | RETRIEVE        | Retorna os detalhes de uma loja especifica   |
+| PUT /api/v1/lojas/:id       | UPDATE          | Atualiza os detalhes de uma loja existente   |
+| DELETE /api/v1/lojas/:id    | DELETE          | Deleta uma loja                              |
 
 ## Deploy
 
