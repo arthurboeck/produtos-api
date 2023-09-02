@@ -17,8 +17,7 @@ export async function getStores() {
         stores = await db(tableStore);
         console.info('Loja encontrada na base: ', stores);
     } catch (err) {
-        console.error('Erro ao consultar loja na base: ', err);
-        throw new ServerError('Erro ao consultar loja na base: ', err.message);
+        handleDatabaseError('consultar', err);
     }
     return stores;
 };
@@ -29,8 +28,7 @@ export async function getStoreById(storeId) {
         storeDetail = await db(tableStore).where({ id: storeId });
         console.info('Loja encontrada na base: ', storeDetail);
     } catch (err) {
-        console.error('Erro ao consultar loja na base: ', err);
-        throw new ServerError('Erro ao consutar loja na base: ', err.message);
+        handleDatabaseError('consultar', err);
     }
     return storeDetail[0];
 };
@@ -42,8 +40,7 @@ export function insertStore(store) {
             console.info('Loja inserida com sucesso na base');
         })
         .catch((err) => {
-            console.error('Erro ao inserir loja na base: ', err);
-            throw new ServerError('Erro ao inserir loja na base: ', err.message);
+            handleDatabaseError('inserir', err);
         });
 };
 
@@ -55,8 +52,7 @@ export function updateStore(storeId, store) {
             console.info('Loja atualizada com sucesso na base');
         })
         .catch((err) => {
-            console.error('Erro ao atualizar loja na base: ', err);
-            throw new ServerError('Erro ao atualizar loja na base: ', err.message);
+            handleDatabaseError('atualizar', err);
         });
 };
 
@@ -68,7 +64,11 @@ export function deleteStore(storeId) {
             console.info('Loja deletada com sucesso na base');
         })
         .catch((err) => {
-            console.error('Erro ao deletar loja na base: ', err);
-            throw new ServerError('Erro ao deletar loja na base: ', err.message);
+            handleDatabaseError('deletar', err);
         });
+};
+
+function handleDatabaseError(operation, error) {
+    console.error(`Erro ao ${operation} loja na base: `, error);
+    throw new ServerError(`Erro ao ${operation} loja na base: `, error.message);
 };

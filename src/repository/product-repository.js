@@ -17,8 +17,7 @@ export async function getProducts() {
         product = await db(tableProduct);
         console.info('Produto encontrado na base: ', product);
     } catch (err) {
-        console.error('Erro ao consultar produto na base: ', err);
-        throw new ServerError('Erro ao consultar produto na base: ', err.message);
+        handleDatabaseError('consultar', err);
     }
     return product;
 };
@@ -29,8 +28,7 @@ export async function getProductById(productId) {
         product = await db(tableProduct).where({ id: productId });
         console.info('Produto encontrado na base: ', product);
     } catch (err) {
-        console.error('Erro ao consultar produto na base: ', err);
-        throw new ServerError('Erro ao consutar produto na base: ', err.message);
+        handleDatabaseError('consultar', err);
     }
     return product[0];
 };
@@ -42,8 +40,7 @@ export function insertProduct(product) {
             console.info('Produto inserido com sucesso na base');
         })
         .catch((err) => {
-            console.error('Erro ao inserir produto na base: ', err);
-            throw new ServerError('Erro ao inserir produto na base: ', err.message);
+            handleDatabaseError('inserir', err);
         });
 };
 
@@ -55,8 +52,7 @@ export function updateProduct(productId, product) {
             console.info('Produto atualizado com sucesso na base');
         })
         .catch((err) => {
-            console.error('Erro ao atualizar produto na base: ', err);
-            throw new ServerError('Erro ao atualizar produto na base: ', err.message);
+            handleDatabaseError('atualizar', err);
         });
 };
 
@@ -68,7 +64,11 @@ export function deleteProduct(productId) {
             console.info('Produto deletado com sucesso na base');
         })
         .catch((err) => {
-            console.error('Erro ao deletar produto na base: ', err);
-            throw new ServerError('Erro ao deletar produto na base: ', err.message);
+            handleDatabaseError('deletar', err);
         });
+};
+
+function handleDatabaseError(operation, error) {
+    console.error(`Erro ao ${operation} produto na base: `, error);
+    throw new ServerError(`Erro ao ${operation} produto na base: `, error.message);
 };
