@@ -21,7 +21,7 @@ export async function getProductById(productId) {
 export async function createProduct(product) {
     try {
         validateProduct(product);
-        productRepository.insertProduct(novoProduto);
+        productRepository.insertProduct(product);
     } catch (error) {
         throw error;
     }

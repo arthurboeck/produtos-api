@@ -1,7 +1,7 @@
 import { ServerError } from '../infra/error/RequestError.js';
 import knex from 'knex';
 
-const tableName = 'produto';
+const tableProduct = 'produto';
 
 const db = knex({
     client: 'sqlite3',
@@ -14,7 +14,7 @@ const db = knex({
 export async function getProducts() {
     let product;
     try {
-        product = await db(tableName);
+        product = await db(tableProduct);
         console.info('Produto encontrado na base: ', product);
     } catch (err) {
         console.error('Erro ao consultar produto na base: ', err);
@@ -26,7 +26,7 @@ export async function getProducts() {
 export async function getProductById(productId) {
     let product;
     try {
-        product = await db(tableName).where({ id: productId });
+        product = await db(tableProduct).where({ id: productId });
         console.info('Produto encontrado na base: ', product);
     } catch (err) {
         console.error('Erro ao consultar produto na base: ', err);
@@ -36,7 +36,7 @@ export async function getProductById(productId) {
 };
 
 export function insertProduct(product) {
-    db(tableName)
+    db(tableProduct)
         .insert(product)
         .then(() => {
             console.info('Produto inserido com sucesso na base');
@@ -48,7 +48,7 @@ export function insertProduct(product) {
 };
 
 export function updateProduct(productId, product) {
-    db(tableName)
+    db(tableProduct)
         .where({ id: productId })
         .update(product)
         .then(() => {
@@ -61,7 +61,7 @@ export function updateProduct(productId, product) {
 };
 
 export function deleteProduct(productId) {
-    db(tableName)
+    db(tableProduct)
         .where({ id: productId })
         .del()
         .then(() => {
