@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-swagger": "node swagger.js",
+    "start:migrations": "npx knex migrate:latest && npx knex seed:run && node index.js",
+    "start:swagger": "node swagger.js",
+    "start:swagger:migrations": "npx knex migrate:latest && npx knex seed:run && node swagger.js",
     "migrations:list": "npx knex migrate:list",
     "migrations:run": "npx knex migrate:latest",
     "seed:run": "npx knex seed:run",
