@@ -2,9 +2,16 @@
   "name": "produtos-api",
   "version": "1.0.0",
   "description": "Aplicação desenvolvida na disciplina de Node.JS na Especialização em Arquitetura de Software Distribuído PUCMG",
-  "main": "product-controller.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node products/controller/product-controller.js"
+    "start": "node index.js",
+    "start:migrations": "npx knex migrate:latest && npx knex seed:run && node index.js",
+    "start:swagger": "node swagger.js",
+    "start:swagger:migrations": "npx knex migrate:latest && npx knex seed:run && node swagger.js",
+    "migrations:list": "npx knex migrate:list",
+    "migrations:run": "npx knex migrate:latest",
+    "seed:run": "npx knex seed:run",
+    "migrations-seed:run": "npx knex migrate:latest && npx knex seed:run"
   },
   "keywords": [],
   "author": "Arthur Guterres Boeck",
@@ -12,6 +19,11 @@
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",
+    "knex": "^2.5.1",
+    "sqlite3": "^5.1.6",
     "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.5"
   }
 }
